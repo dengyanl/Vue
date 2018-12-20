@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯</title>
+    <!-- 第一步:导入 Vue 的js文件 -->
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <!-- 第二步:写好 HTML 结构 -->
+    <!-- 也就是所谓的 要控制的区域 -->
+    <div id="app">
+        <input @click="start" type="button" value="动起来">
+        <input @click="stop" type="button" value="不许动">
+        <!-- 渲染到页面 -->
+        <!-- msg 必须在 data 中首先定义好 -->
+        <h5>{{msg}}<h5>
+
+
+    </div>
+
+
+    <script>
+        // 注意：在 VM实例中，如果想要获取 data 上的数据，
+        //  或者 想要调用 methods 中的 方法，必须通过 
+        //  this.数据属性名  或  this.方法名 来进行访问，
+        //  这里的this，就表示 我们 new 出来的  VM 实例对象
+
+
+        // 第三步:new 一个 Vue 实例
+        var vm = new Vue({
+            // 获取数据 id
+            el: "#app",
+            // 设置,定义好属性
+            data: {
+                msg: "中华人民共和国!!!",
+
+                //intervalId: null //在data上定义好 定时器 id
+                timerId: null
+
+            },
+            // 调用 methods 中的 方法
+            methods: {
+                start() {
+                    clearInterval(this.timerId)
+                    this.timerId = setInterval(() => {
+
+                        // 获取到头的第一个字符
+                        let start = this.msg.substr(0, 1)
+                        // 获取到后面的所有字符
+                        let end = this.msg.substr(1)
+                        // 重新拼接得到新的字符串,并赋值给 this.msg
+                        this.msg = end + start
+
+                    }, 400)
+                },
+                // 设置 暂停  /定时器
+                stop() {
+                    clearInterval(this.timerId)
+
+                    // 每次清除定时器之后 需要重新把 intervalId 置为 null
+                    this.timerId = null;
+                    // clearTimeout(this.timerId)
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
