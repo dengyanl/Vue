@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class样式</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .red {
+            color: blueviolet;
+        }
+
+        .thin {
+            font-weight: 200;
+        }
+
+        /* 倾斜 */
+        .italic {
+            font-style: italic;
+        }
+
+        /* 字体间距  0.5em */
+        .active {
+            letter-spacing: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1. -->
+        <!-- 直接传递数组 -->
+        <!-- <h1 :class="['red','thin']">茕茕孑立 沆瀣一气 龙行龘龘 犄角旮沓 娉婷袅娜 涕泗滂沱 呶呶不休 不稂不莠</h1> -->
+       
+        <!-- 2. -->
+        <!-- 用 v-bind绑定  -->
+        <!-- <h1 :class="{red:true,thin:true,italic:true,active:true}">茕茕孑立 沆瀣一气 龙行龘龘 犄角旮沓 娉婷袅娜 涕泗滂沱 呶呶不休 不稂不莠</h1> -->
+        
+
+        <!-- 3. -->
+        <!-- 三元表达式 -->
+        <!-- <h1 :class="['thin','italic',flag?'active':'']">茕茕孑立 沆瀣一气 龙行龘龘 犄角旮沓 娉婷袅娜 涕泗滂沱 呶呶不休 不稂不莠</h1> -->
+    
+
+        <!-- 4. -->
+        <!-- 在数组中  用对象来替换 三元表达式 -->
+        <h1 :class="['thin','italic',{'active':flag}]">茕茕孑立 沆瀣一气 龙行龘龘 犄角旮沓 娉婷袅娜 涕泗滂沱 呶呶不休 不稂不莠</h1>
+    </div>
+
+    <script>
+        //    创建Vue 实例  得到 ViewModel 
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flag: true,
+                classOne: ['red', 'thin'],
+                classTwo: ['red:true,thin:true,italic:true,active:true']
+
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

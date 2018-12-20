@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for 对象数组</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-for="(one,i) in list">id:{{one.id}} --- 名字:{{one.name}} --- 性别:{{one.gender}} --- 索引：{{i}}</h1>
+        <!-- <p v-for="(user, i) in list">Id：{{ user.id }} --- 名字：{{ user.name }} --- 索引：{{i}}</p> -->
+
+    </div>
+
+    <script>
+        // 创建 Vue 实例，得到 ViewModel
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                list:[
+
+                    {id:1,name:"zs1",gender:"boy"},
+                    {id:2,name:"li2",gender:"girl"},
+                    {id:3,name:"gy3",gender:"boy"},
+                    {id:4,name:"jk4",gender:"girl"},
+                    {id:5,name:"rt5",gender:"boy"},
+                    {id:6,name:"wq6",gender:"girl"}
+                ]
+            },
+            methods:{}
+        })
+    </script>
+</body>
+
+</html>
