@@ -1,0 +1,15 @@
+ul li{
+
+    font-size: 22px;
+    color: blueviolet;
+    height: 62px;
+    line-height: 62px;
+    /* background-color: skyblue; */
+    /* font-style: inherit; */
+    /* display: block; */
+    font-style: initial;
+    border: 1px dashed aqua;
+    background-color: pink;
+    background-image: url(../../images/timg.jpg);
+
+}
